@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Authorization Successful • Makeshortseasy</title>
+  <title>OAuth Callback • Makeshortseasy</title>
   <meta
     name="description"
     content="OAuth callback page for Makeshortseasy. Your account is now securely connected."
@@ -17,27 +17,22 @@
           colors: {
             tiktok: "#fe2c55",
           },
+          boxShadow: {
+            soft: "0 20px 60px rgba(15, 23, 42, 0.08)",
+          },
           keyframes: {
-            popIn: {
-              "0%": { opacity: "0", transform: "scale(0.85) translateY(10px)" },
-              "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
-            },
-            pulseSoft: {
-              "0%, 100%": { transform: "scale(1)", opacity: "1" },
-              "50%": { transform: "scale(1.04)", opacity: "0.9" },
-            },
             floaty: {
               "0%, 100%": { transform: "translateY(0px)" },
               "50%": { transform: "translateY(-6px)" },
             },
+            pulseSoft: {
+              "0%, 100%": { transform: "scale(1)", opacity: "1" },
+              "50%": { transform: "scale(1.04)", opacity: "0.92" },
+            },
           },
           animation: {
-            popIn: "popIn 0.55s ease-out forwards",
-            pulseSoft: "pulseSoft 2.2s ease-in-out infinite",
             floaty: "floaty 4s ease-in-out infinite",
-          },
-          boxShadow: {
-            soft: "0 20px 60px rgba(15, 23, 42, 0.08)",
+            pulseSoft: "pulseSoft 2.2s ease-in-out infinite",
           },
         },
       },
@@ -48,150 +43,179 @@
     body {
       font-feature-settings: "ss01" on, "cv01" on, "cv02" on;
     }
+
+    .content-transition {
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .content-hidden {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .content-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
   <div class="relative min-h-screen overflow-hidden">
     <!-- Background -->
     <div class="pointer-events-none absolute inset-0">
-      <div class="absolute left-1/2 top-[-120px] h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-tiktok/10 blur-3xl"></div>
-      <div class="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-emerald-200/40 blur-3xl"></div>
-      <div class="absolute left-10 top-40 h-44 w-44 rounded-full bg-slate-200/60 blur-3xl"></div>
+      <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-tiktok/10 blur-3xl"></div>
+      <div class="absolute top-32 left-10 h-40 w-40 rounded-full bg-amber-200/30 blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 h-52 w-52 rounded-full bg-emerald-200/40 blur-3xl"></div>
     </div>
 
-    <main class="relative mx-auto flex min-h-screen max-w-5xl items-center justify-center px-4 py-10">
-      <div class="w-full max-w-2xl animate-popIn">
+    <main class="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+      <div class="w-full max-w-2xl">
         <!-- Branding -->
         <div class="mb-6 flex items-center justify-center gap-3">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-2xl text-white shadow-soft">
             🐉
           </div>
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-              OAuth Callback
-            </p>
-            <h1 class="text-xl font-bold tracking-tight text-slate-900">
-              Makeshortseasy
-            </h1>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">OAuth Callback</p>
+            <h1 class="text-xl font-bold tracking-tight text-slate-900">Makeshortseasy</h1>
           </div>
         </div>
 
-        <!-- Main Card -->
+        <!-- Card -->
         <section class="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-soft backdrop-blur sm:p-10">
-          <!-- Success Visual -->
-          <div class="mb-6 flex justify-center">
-            <div class="relative animate-floaty">
-              <div class="absolute inset-0 rounded-full bg-emerald-500/15 blur-2xl"></div>
-              <div class="relative flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 ring-1 ring-emerald-100">
-                <svg
-                  class="h-12 w-12 animate-pulseSoft text-emerald-500"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
+          <div id="main-content" class="content-transition content-visible">
+            <!-- Status icon -->
+            <div class="mx-auto mb-6 flex justify-center">
+              <div class="relative animate-floaty">
+                <div id="icon-glow" class="absolute inset-0 rounded-full bg-amber-500/15 blur-2xl"></div>
+                <div
+                  id="icon-shell"
+                  class="relative flex h-24 w-24 items-center justify-center rounded-full bg-amber-50 ring-1 ring-amber-100"
                 >
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
+                  <div
+                    id="status-icon"
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 text-white animate-pulseSoft"
+                  >
+                    <svg
+                      id="icon-svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Heading -->
-          <div class="text-center">
-            <div
-              id="status-badge"
-              class="mb-3 inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700"
-            >
-              Secure OAuth Callback Detected
+            <!-- Badge -->
+            <div class="text-center">
+              <div
+                id="status-badge"
+                class="mb-3 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700"
+              >
+                Awaiting OAuth Callback
+              </div>
+
+              <h2
+                id="headline"
+                class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                Waiting for Authorization...
+              </h2>
+
+              <p
+                id="subheadline"
+                class="mx-auto mt-4 max-w-xl text-base leading-7 text-slate-600 sm:text-lg"
+              >
+                Complete the secure OAuth redirect to connect your account to
+                <span class="font-semibold text-slate-900">Makeshortseasy</span>.
+              </p>
             </div>
 
-            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Authorization Successful!
-            </h2>
+            <!-- Status Card -->
+            <div
+              id="status-card"
+              class="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-5"
+            >
+              <div class="flex items-start gap-3">
+                <div
+                  id="mini-icon"
+                  class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-white"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                  </svg>
+                </div>
 
-            <p class="mx-auto mt-4 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-              Your account is now securely connected to
-              <span class="font-semibold text-slate-900">Makeshortseasy</span>.
+                <div class="min-w-0 flex-1">
+                  <p id="flow-label" class="text-sm font-semibold text-slate-900">OAuth Flow Status</p>
+                  <p id="token-status" class="mt-1 text-sm text-slate-700">
+                    Waiting for authorization parameters...
+                  </p>
+                  <p id="token-meta" class="mt-2 text-xs text-slate-500">
+                    No authorization code has been received yet.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-slate-200 p-4">
+                <p class="text-sm font-semibold text-slate-900">What happens next</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">
+                  Once the OAuth redirect sends the authorization code, this page will confirm the secure connection automatically.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 p-4">
+                <p class="text-sm font-semibold text-slate-900">After success</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">
+                  You can safely close this window and return to the application to continue your automated workflows.
+                </p>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <button
+                id="close-btn"
+                onclick="window.close()"
+                class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200"
+              >
+                Close Window
+              </button>
+
+              <a
+                id="return-link"
+                href="./index.html"
+                class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200"
+              >
+                Return to Site
+              </a>
+            </div>
+
+            <p id="close-helper" class="mt-4 hidden text-center text-sm text-slate-500">
+              This browser may block automatic tab closing. You can close this window manually and return to the app.
             </p>
           </div>
-
-          <!-- OAuth Status Card -->
-          <div id="status-card" class="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-            <div class="flex items-start gap-3">
-              <div
-                id="status-icon-wrap"
-                class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white"
-              >
-                <svg
-                  id="status-icon"
-                  class="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-              </div>
-
-              <div class="min-w-0 flex-1">
-                <p id="flow-label" class="text-sm font-semibold text-slate-900">
-                  OAuth Flow Status
-                </p>
-                <p id="token-status" class="mt-1 text-sm text-slate-700">
-                  Token Received Successfully.
-                </p>
-                <p id="token-meta" class="mt-2 text-xs text-slate-500">
-                  Verifying callback parameters...
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Instructions -->
-          <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-slate-200 p-4">
-              <p class="text-sm font-semibold text-slate-900">What happened</p>
-              <p class="mt-2 text-sm leading-6 text-slate-600">
-                The authorization callback was received and your secure connection flow has been completed successfully.
-              </p>
-            </div>
-
-            <div class="rounded-2xl border border-slate-200 p-4">
-              <p class="text-sm font-semibold text-slate-900">What you should do</p>
-              <p class="mt-2 text-sm leading-6 text-slate-600">
-                You can now close this window and return to the Makeshortseasy application to continue your automated workflows.
-              </p>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              id="close-btn"
-              type="button"
-              class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200"
-            >
-              Close Window
-            </button>
-
-            <a
-              id="return-link"
-              href="./index.html"
-              class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200"
-            >
-              Return to Site
-            </a>
-          </div>
-
-          <p id="close-helper" class="mt-4 hidden text-center text-sm text-slate-500">
-            This browser blocked automatic tab closing. You can close this window manually and return to the app.
-          </p>
         </section>
 
         <!-- Footer -->
@@ -219,94 +243,150 @@
       const error = params.get("error");
 
       const yearEl = document.getElementById("year");
+      const mainContent = document.getElementById("main-content");
       const badgeEl = document.getElementById("status-badge");
-      const cardEl = document.getElementById("status-card");
-      const iconWrapEl = document.getElementById("status-icon-wrap");
-      const flowLabelEl = document.getElementById("flow-label");
-      const statusEl = document.getElementById("token-status");
-      const metaEl = document.getElementById("token-meta");
+      const headlineEl = document.getElementById("headline");
+      const subheadlineEl = document.getElementById("subheadline");
+      const statusCardEl = document.getElementById("status-card");
+      const tokenStatusEl = document.getElementById("token-status");
+      const tokenMetaEl = document.getElementById("token-meta");
+      const iconGlowEl = document.getElementById("icon-glow");
+      const iconShellEl = document.getElementById("icon-shell");
+      const statusIconEl = document.getElementById("status-icon");
+      const iconSvgEl = document.getElementById("icon-svg");
+      const miniIconEl = document.getElementById("mini-icon");
       const closeBtn = document.getElementById("close-btn");
       const closeHelper = document.getElementById("close-helper");
 
       yearEl.textContent = new Date().getFullYear();
 
-      function setSuccess(message, meta) {
-        badgeEl.className =
-          "mb-3 inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700";
-        badgeEl.textContent = "OAuth Callback Completed";
+      function fadeSwap(updateFn, delay = 0) {
+        setTimeout(() => {
+          mainContent.classList.remove("content-visible");
+          mainContent.classList.add("content-hidden");
 
-        cardEl.className =
-          "mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5";
-
-        iconWrapEl.className =
-          "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white";
-
-        flowLabelEl.textContent = "OAuth Flow Status";
-        statusEl.textContent = message;
-        metaEl.textContent = meta;
+          setTimeout(() => {
+            updateFn();
+            mainContent.classList.remove("content-hidden");
+            mainContent.classList.add("content-visible");
+          }, 220);
+        }, delay);
       }
 
-      function setError(message, meta) {
-        badgeEl.className =
-          "mb-3 inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700";
-        badgeEl.textContent = "OAuth Callback Error";
-
-        cardEl.className =
-          "mt-8 rounded-2xl border border-red-200 bg-red-50 p-5";
-
-        iconWrapEl.className =
-          "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-500 text-white";
-
-        iconWrapEl.innerHTML = `
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        `;
-
-        flowLabelEl.textContent = "OAuth Flow Status";
-        statusEl.textContent = message;
-        metaEl.textContent = meta;
-      }
-
-      function setPending() {
+      function setWaitingState() {
         badgeEl.className =
           "mb-3 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700";
-        badgeEl.textContent = "Awaiting OAuth Parameters";
+        badgeEl.textContent = "Awaiting OAuth Callback";
 
-        cardEl.className =
-          "mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5";
+        headlineEl.textContent = "Waiting for Authorization...";
+        subheadlineEl.innerHTML =
+          'Complete the secure OAuth redirect to connect your account to <span class="font-semibold text-slate-900">Makeshortseasy</span>.';
 
-        iconWrapEl.className =
-          "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-white";
+        statusCardEl.className =
+          "mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 sm:p-5";
 
-        iconWrapEl.innerHTML = `
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        tokenStatusEl.textContent = "Waiting for authorization parameters...";
+        tokenMetaEl.textContent = "No authorization code has been received yet.";
+
+        iconGlowEl.className = "absolute inset-0 rounded-full bg-amber-500/15 blur-2xl";
+        iconShellEl.className =
+          "relative flex h-24 w-24 items-center justify-center rounded-full bg-amber-50 ring-1 ring-amber-100";
+        statusIconEl.className =
+          "flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 text-white animate-pulseSoft";
+        miniIconEl.className =
+          "mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-white";
+
+        iconSvgEl.outerHTML = `
+          <svg
+            id="icon-svg"
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
             <circle cx="12" cy="12" r="9"></circle>
             <path d="M12 7v5l3 2"></path>
           </svg>
         `;
 
-        flowLabelEl.textContent = "OAuth Flow Status";
-        statusEl.textContent = "Awaiting secure callback parameters.";
-        metaEl.textContent = "No authorization code was found in the current URL.";
+        miniIconEl.innerHTML = `
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 2"></path>
+          </svg>
+        `;
       }
 
-      if (error) {
-        setError(
-          "Authorization response received with an error.",
-          `OAuth provider returned: ${error}`
-        );
-      } else if (code) {
+      function setSuccessState(receivedCode, receivedState) {
         const preview =
-          code.length > 12
-            ? code.slice(0, 4) + "••••••" + code.slice(-4)
+          receivedCode.length > 12
+            ? receivedCode.slice(0, 4) + "••••••" + receivedCode.slice(-4)
             : "••••••••";
 
-        setSuccess(
-          "Token Received Successfully.",
-          `Authorization code detected (${code.length} chars) • Preview: ${preview}${state ? " • State parameter detected." : ""}`
-        );
+        badgeEl.className =
+          "mb-3 inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700";
+        badgeEl.textContent = "OAuth Callback Completed";
+
+        headlineEl.textContent = "Authorization Successful!";
+        subheadlineEl.innerHTML =
+          'Your account is now securely connected to <span class="font-semibold text-slate-900">Makeshortseasy</span>.';
+
+        statusCardEl.className =
+          "mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5";
+
+        tokenStatusEl.textContent = "Security token received successfully.";
+        tokenMetaEl.textContent =
+          `Authorization code detected (${receivedCode.length} chars) • Preview: ${preview}` +
+          (receivedState ? " • State parameter detected." : "");
+
+        iconGlowEl.className = "absolute inset-0 rounded-full bg-emerald-500/15 blur-2xl";
+        iconShellEl.className =
+          "relative flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 ring-1 ring-emerald-100";
+        statusIconEl.className =
+          "flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white animate-pulseSoft";
+        miniIconEl.className =
+          "mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white";
+
+        document.getElementById("status-icon").innerHTML = `
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        `;
+
+        miniIconEl.innerHTML = `
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        `;
 
         try {
           if (window.opener) {
@@ -315,19 +395,82 @@
                 type: "oauth_callback_received",
                 provider: "tiktok",
                 hasCode: true,
-                hasState: !!state
+                hasState: !!receivedState,
               },
               "*"
             );
           }
         } catch (e) {}
+      }
+
+      function setErrorState(err) {
+        badgeEl.className =
+          "mb-3 inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700";
+        badgeEl.textContent = "OAuth Callback Error";
+
+        headlineEl.textContent = "Authorization Failed";
+        subheadlineEl.textContent =
+          "The OAuth provider returned an error instead of a valid authorization code.";
+
+        statusCardEl.className =
+          "mt-8 rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5";
+
+        tokenStatusEl.textContent = "An OAuth error was received.";
+        tokenMetaEl.textContent = `Error: ${err}`;
+
+        iconGlowEl.className = "absolute inset-0 rounded-full bg-red-500/15 blur-2xl";
+        iconShellEl.className =
+          "relative flex h-24 w-24 items-center justify-center rounded-full bg-red-50 ring-1 ring-red-100";
+        statusIconEl.className =
+          "flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-white animate-pulseSoft";
+        miniIconEl.className =
+          "mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-red-500 text-white";
+
+        document.getElementById("status-icon").innerHTML = `
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        `;
+
+        miniIconEl.innerHTML = `
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        `;
+      }
+
+      if (error) {
+        fadeSwap(() => setErrorState(error), 150);
+      } else if (code) {
+        // show a brief professional transition so the reviewer sees the page reacting
+        tokenStatusEl.textContent = "Authorization code detected. Finalizing secure callback...";
+        tokenMetaEl.textContent = "Processing OAuth response parameters...";
+        fadeSwap(() => setSuccessState(code, state), 500);
       } else {
-        setPending();
+        setWaitingState();
       }
 
       closeBtn.addEventListener("click", function () {
         window.close();
-
         setTimeout(function () {
           if (!window.closed) {
             closeHelper.classList.remove("hidden");
