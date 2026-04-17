@@ -1,119 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy for Makeshortseasy</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        h1 {
-            color: #ff2f5b;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            color: #111;
-        }
-        p, li {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .last-updated {
-            color: #777;
-            font-style: italic;
-            margin-bottom: 40px;
-        }
-        .contact-box {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 40px;
-            border: 1px solid #eee;
-        }
-        footer {
-            margin-top: 60px;
-            font-size: 0.9rem;
-            color: #999;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy for Makeshortseasy</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5e6b85;
+      --border: #e7eaf1;
+      --accent: #ff2f5b;
+      --accent-soft: #fff1f4;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    body {
+      padding: 40px 20px 60px;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(19, 32, 51, 0.05);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.15;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .updated {
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .intro {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: 22px;
+      line-height: 1.25;
+      margin: 34px 0 12px;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #fff8fa;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 20px 0 10px;
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 20px 12px 36px;
+      }
+
+      .card {
+        padding: 24px 20px;
+        border-radius: 16px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy for Makeshortseasy</h1>
-        <p class="last-updated">Last Updated: April 17, 2026</p>
+  <div class="wrap">
+    <main class="card">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy for Makeshortseasy</h1>
+      <p class="updated">Last Updated: April 17, 2026</p>
 
-        <p>This Privacy Policy describes how <strong>Makeshortseasy</strong> ("we", "us", or "our") handles information when you use our desktop application and its integrated TikTok features. We are committed to protecting your privacy and being transparent about how our software interacts with your data.</p>
+      <p class="intro">
+        This Privacy Policy describes how Makeshortseasy ("we", "us", or "our") handles information when you use our desktop application and TikTok integration features. This page belongs to Makeshortseasy and explains what information the application may access, how that information is used, how it is stored on your device, and the choices available to you.
+      </p>
 
-        <h2>1. Overview of Service</h2>
-        <p>Makeshortseasy is a desktop-based application designed to facilitate the preparation and uploading of video content to TikTok. To provide these services, the app utilizes the official TikTok Login Kit for Desktop and the TikTok Content Posting API.</p>
+      <h2>1. Introduction</h2>
+      <p>
+        Makeshortseasy is a desktop application designed to help users connect their TikTok accounts through TikTok’s official authorization flow and upload videos to their own TikTok accounts using TikTok API services. The website associated with Makeshortseasy is used as the official product website and to host legal information. The core app experience takes place on the user’s own device.
+      </p>
+      <p>
+        Makeshortseasy does not ask you to provide your TikTok password directly. Instead, when account access is needed, the app uses TikTok’s official authorization process.
+      </p>
 
-        <h2>2. Information Accessed and Stored</h2>
-        <p>Because Makeshortseasy is a local desktop application, we do not operate a remote backend server to store your personal content. The following data is handled:</p>
-        <ul>
-            <li><strong>TikTok Account Information:</strong> Through the TikTok authorization flow, the app accesses basic profile information (such as your username and avatar) to identify the connected account.</li>
-            <li><strong>Authentication Tokens:</strong> Upon successful login, TikTok provides OAuth authorization codes, access tokens, and refresh tokens. <strong>These tokens are stored locally on your own device</strong> to keep you logged in and enable video uploads.</li>
-            <li><strong>User-Selected Media:</strong> The app only accesses video files and captions that you explicitly select from your local storage for the purpose of uploading to TikTok.</li>
-            <li><strong>Local Logs:</strong> For troubleshooting and performance monitoring, the app may generate local error logs on your device. These logs remain on your machine and are not automatically transmitted to us.</li>
-        </ul>
+      <h2>2. Information Makeshortseasy May Access</h2>
+      <p>
+        Makeshortseasy only accesses information that is necessary for the features you choose to use and that you explicitly authorize through TikTok’s official flow or through your direct use of the app.
+      </p>
+      <ul>
+        <li>Basic TikTok account or profile information made available through the authorized TikTok integration, as needed for authentication and connected account functionality.</li>
+        <li>OAuth authorization data, such as authorization codes, access tokens, and refresh tokens, issued through TikTok’s official authorization flow.</li>
+        <li>Videos, captions, and related posting details that you choose from your own device and explicitly submit for upload.</li>
+        <li>Local application logs or error details created on your device for troubleshooting and operational purposes.</li>
+      </ul>
 
-        <h2>3. How Information is Used</h2>
-        <p>The information accessed by Makeshortseasy is used strictly for the following purposes:</p>
-        <ul>
-            <li>To authenticate your identity via TikTok’s official authorization flow.</li>
-            <li>To facilitate the transfer of your selected media and captions to your TikTok account.</li>
-            <li>To manage your session and ensure the app remains connected to the TikTok API as authorized.</li>
-        </ul>
+      <h2>3. TikTok Data and Authorization</h2>
+      <p>
+        Makeshortseasy uses TikTok Login Kit for Desktop and TikTok Content Posting API to help you connect your TikTok account and upload content that you choose. The app only uses TikTok-related data and permissions that are required for these features and that you authorize.
+      </p>
+      <p>
+        When you connect your TikTok account, TikTok may provide Makeshortseasy with authorization data and limited account information permitted by the scopes you approve. Makeshortseasy uses that information only to support the authorized TikTok connection and the user-initiated upload workflow.
+      </p>
 
-        <h2>4. Data Retention and Deletion</h2>
-        <p>We do not store your TikTok data on any remote servers. Your data retention is controlled entirely by you:</p>
-        <ul>
-            <li><strong>Local Deletion:</strong> You may delete the application's local database and cache at any time to remove all stored tokens and session data from your machine.</li>
-            <li><strong>Revoking Access:</strong> You can revoke Makeshortseasy’s access to your TikTok account at any time through the "Security and Login" settings within your TikTok mobile app or website.</li>
-        </ul>
+      <h2>4. Local Storage of Tokens</h2>
+      <p>
+        Access tokens and refresh tokens used by Makeshortseasy are stored locally on your own device so the desktop application can maintain an authorized connection between sessions. Makeshortseasy is not described here as storing those tokens on our remote servers.
+      </p>
+      <p>
+        Because the app runs locally, the protection of the device itself also matters. Anyone with access to your device and local application files may be able to access locally stored app data, depending on your device configuration and security settings.
+      </p>
 
-        <h2>5. Third-Party Services</h2>
-        <p>Makeshortseasy interacts with TikTok via official API Services. By using this application, you are also bound by TikTok's Privacy Policy. We encourage you to review how TikTok handles data at their official privacy portal.</p>
+      <h2>5. User-Selected Media and Captions</h2>
+      <p>
+        Makeshortseasy may process videos, captions, and related posting inputs that you select from your own device. This information is used only to prepare and submit the upload you explicitly initiate to your own TikTok account.
+      </p>
+      <p>
+        Makeshortseasy does not upload content automatically without user action. Uploads occur only when you instruct the app to do so.
+      </p>
 
-        <h2>6. Security</h2>
-        <p>We prioritize the security of your local data. Makeshortseasy uses standard local storage practices to protect your authentication tokens. However, the security of your device is your responsibility; we recommend using OS-level encryption and passwords to secure your local files.</p>
+      <h2>6. Local Logs and Error Information</h2>
+      <p>
+        Makeshortseasy may create local logs, status records, or error messages on your device to help with troubleshooting, diagnostics, or understanding whether a TikTok connection or upload action succeeded or failed. These logs are generated locally as part of the desktop application experience.
+      </p>
+      <p>
+        Unless you choose to share local logs yourself, this Privacy Policy does not represent that such logs are automatically transmitted to a remote backend.
+      </p>
 
-        <h2>7. Children's Privacy</h2>
-        <p>Makeshortseasy does not knowingly collect or solicit information from children. Use of the app is subject to the age requirements set by TikTok for account ownership.</p>
+      <h2>7. How Makeshortseasy Uses Information</h2>
+      <p>Makeshortseasy uses authorized and locally available information to:</p>
+      <ul>
+        <li>authenticate your TikTok connection through TikTok’s official flow;</li>
+        <li>maintain the authorized session on your device using locally stored tokens;</li>
+        <li>allow you to select media and submit uploads to your own TikTok account;</li>
+        <li>display connection, posting, and error status within the desktop application; and</li>
+        <li>support troubleshooting and technical operation through local logs or error records.</li>
+      </ul>
 
-        <h2>8. Changes to this Policy</h2>
-        <p>We may update this Privacy Policy from time to time to reflect changes in our app or legal requirements. Any updates will be posted on this page with an updated "Last Updated" date.</p>
+      <h2>8. Data Retention</h2>
+      <p>
+        Makeshortseasy retains locally stored tokens, local logs, and other local app data on your device for as long as they remain on that device, are needed for the app’s functionality, or until you remove them. User-selected media remains subject to your own device storage and file management practices unless and until you delete it.
+      </p>
+      <p>
+        If you disconnect the app, revoke access through TikTok, or delete local Makeshortseasy data from your device, the app may no longer be able to use previously stored tokens or related local data.
+      </p>
 
-        <div class="contact-box">
-            <h2>Contact Us</h2>
-            <p>If you have any questions regarding this Privacy Policy or the data practices of Makeshortseasy, please contact us at:</p>
-            <p><strong>Email:</strong> jaungauos@gmail.com</p>
-        </div>
+      <h2>9. Revoking Access and Deleting Local Data</h2>
+      <p>
+        You can revoke Makeshortseasy’s access to your TikTok account through your TikTok account settings, subject to TikTok’s own controls and interfaces.
+      </p>
+      <p>
+        You can also delete locally stored tokens, local logs, or other application data from your own device by removing the relevant Makeshortseasy files or reinstalling or resetting the application, depending on how you use it.
+      </p>
 
-        <footer>
-            &copy; 2026 Makeshortseasy. All rights reserved.
-        </footer>
-    </div>
+      <div class="note">
+        If you no longer want Makeshortseasy to access your TikTok account, you should revoke access in TikTok and remove local app data from your device.
+      </div>
+
+      <h2>10. Security</h2>
+      <p>
+        Makeshortseasy uses a local desktop workflow and TikTok’s official authorization flow, and we aim to handle authorized information in a reasonable and careful manner consistent with the app’s purpose. However, no method of storage, software operation, or device security can be guaranteed to be completely secure.
+      </p>
+      <p>
+        You are responsible for maintaining the security of the device where Makeshortseasy is installed, including account access controls, file access controls, and general system security practices.
+      </p>
+
+      <h2>11. Children and Eligibility</h2>
+      <p>
+        Makeshortseasy is intended for users who are legally permitted to use TikTok’s services and the relevant TikTok developer features. The app is not directed to children. If you are not old enough to lawfully use the relevant TikTok services or to authorize this type of account connection, you should not use Makeshortseasy.
+      </p>
+
+      <h2>12. Policy Changes</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in Makeshortseasy, its TikTok integration, or related operational practices. When we make changes, we will update the “Last Updated” date shown on this page.
+      </p>
+
+      <h2>13. Contact</h2>
+      <p>
+        If you have questions about this Privacy Policy or about how Makeshortseasy handles information in connection with its TikTok features, you can contact us at <a href="mailto:jaungauos@gmail.com">jaungauos@gmail.com</a>.
+      </p>
+
+      <footer>
+        Privacy Policy for Makeshortseasy
+      </footer>
+    </main>
+  </div>
 </body>
 </html>
