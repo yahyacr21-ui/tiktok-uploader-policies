@@ -3,271 +3,373 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy for Makeshortseasy</title>
+  <title>Privacy Policy – Makeshortseasy</title>
   <style>
     :root {
-      --bg: #f7f8fb;
-      --card: #ffffff;
-      --text: #172033;
-      --muted: #5e6b85;
-      --border: #e7eaf1;
       --accent: #ff2f5b;
-      --accent-soft: #fff1f4;
+      --accent-light: #fff0f3;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #fafafa;
+      --max: 760px;
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.7;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      padding: 40px 20px 60px;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
+    /* Top bar */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(19, 32, 51, 0.05);
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
     }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12px;
+    .topbar-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-icon svg { display: block; }
+    .topbar-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: 38px;
-      line-height: 1.15;
-      margin: 0 0 14px;
+      font-size: 15px;
+      color: var(--text);
       letter-spacing: -0.02em;
     }
-
-    .updated {
-      margin: 0 0 30px;
+    .topbar-sep {
+      color: var(--border);
+      font-size: 18px;
+      margin-left: 4px;
+    }
+    .topbar-page {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
       color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
+      margin-left: 4px;
     }
 
-    .intro {
-      font-size: 17px;
-      color: var(--text);
-      margin-bottom: 34px;
+    /* Layout */
+    .wrapper {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 24px 80px;
     }
+
+    /* Hero */
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .page-header h1 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .page-header h1 span { color: var(--accent); }
+    .meta {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+    section { margin-bottom: 40px; }
 
     h2 {
-      font-size: 22px;
-      line-height: 1.25;
-      margin: 34px 0 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--accent);
-      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
-    p {
-      margin: 0 0 14px;
-      color: var(--text);
-    }
+    p { margin-bottom: 14px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
 
     ul {
-      margin: 0 0 16px 20px;
-      padding: 0;
+      padding-left: 20px;
+      margin-bottom: 14px;
     }
-
-    li {
+    ul li {
       margin-bottom: 8px;
       color: var(--text);
     }
+    ul li::marker { color: var(--accent); }
 
-    .note {
-      border-left: 4px solid var(--accent);
-      background: #fff8fa;
-      padding: 14px 16px;
-      border-radius: 10px;
-      margin: 20px 0 10px;
-      color: var(--text);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
+    /* Highlight box */
+    .callout {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 14px;
+      color: #7a1328;
     }
 
-    @media (max-width: 700px) {
-      body {
-        padding: 20px 12px 36px;
-      }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-      .card {
-        padding: 24px 20px;
-        border-radius: 16px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
-
-      h2 {
-        font-size: 20px;
-      }
-
-      .intro {
-        font-size: 16px;
-      }
+    /* Footer */
+    .page-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <main class="card">
-      <div class="eyebrow">Legal</div>
-      <h1>Privacy Policy for Makeshortseasy</h1>
-      <p class="updated">Last Updated: April 17, 2026</p>
 
-      <p class="intro">
-        This Privacy Policy describes how Makeshortseasy ("we", "us", or "our") handles information when you use our desktop application and TikTok integration features. This page belongs to Makeshortseasy and explains what information the application may access, how that information is used, how it is stored on your device, and the choices available to you.
-      </p>
+  <!-- Top bar -->
+  <div class="topbar">
+    <a class="topbar-logo" href="#">
+      <img src="data:image/png;base64,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" style="height:40px;width:auto;display:block;" alt="Makeshortseasy logo" />
+      <span class="topbar-name">Makeshortseasy</span>
+    </a>
+    <span class="topbar-sep">|</span>
+    <span class="topbar-page">Privacy Policy</span>
+  </div>
 
-      <h2>1. Introduction</h2>
-      <p>
-        Makeshortseasy is a desktop application designed to help users connect their TikTok accounts through TikTok’s official authorization flow and upload videos to their own TikTok accounts using TikTok API services. The website associated with Makeshortseasy is used as the official product website and to host legal information. The core app experience takes place on the user’s own device.
-      </p>
-      <p>
-        Makeshortseasy does not ask you to provide your TikTok password directly. Instead, when account access is needed, the app uses TikTok’s official authorization process.
-      </p>
+  <div class="wrapper">
 
-      <h2>2. Information Makeshortseasy May Access</h2>
-      <p>
-        Makeshortseasy only accesses information that is necessary for the features you choose to use and that you explicitly authorize through TikTok’s official flow or through your direct use of the app.
-      </p>
-      <ul>
-        <li>Basic TikTok account or profile information made available through the authorized TikTok integration, as needed for authentication and connected account functionality.</li>
-        <li>OAuth authorization data, such as authorization codes, access tokens, and refresh tokens, issued through TikTok’s official authorization flow.</li>
-        <li>Videos, captions, and related posting details that you choose from your own device and explicitly submit for upload.</li>
-        <li>Local application logs or error details created on your device for troubleshooting and operational purposes.</li>
-      </ul>
+    <header class="page-header">
+      <h1>Privacy Policy for <span>Makeshortseasy</span></h1>
+      <p class="meta">Last Updated: April 17, 2026</p>
+    </header>
 
-      <h2>3. TikTok Data and Authorization</h2>
+    <!-- 1. Introduction -->
+    <section>
+      <h2>Introduction</h2>
       <p>
-        Makeshortseasy uses TikTok Login Kit for Desktop and TikTok Content Posting API to help you connect your TikTok account and upload content that you choose. The app only uses TikTok-related data and permissions that are required for these features and that you authorize.
+        This Privacy Policy describes how Makeshortseasy ("we," "us," or "our") handles information
+        when you use our desktop application and its TikTok integration features. Makeshortseasy is
+        a desktop application that enables you to connect your TikTok account and upload video content
+        directly from your own device.
       </p>
       <p>
-        When you connect your TikTok account, TikTok may provide Makeshortseasy with authorization data and limited account information permitted by the scopes you approve. Makeshortseasy uses that information only to support the authorized TikTok connection and the user-initiated upload workflow.
+        We built Makeshortseasy with a straightforward principle: your data stays on your device.
+        We do not operate a remote backend that stores your personal information, TikTok credentials,
+        or media files. Please read this policy carefully to understand what information is involved
+        and how it is handled.
       </p>
-
-      <h2>4. Local Storage of Tokens</h2>
-      <p>
-        Access tokens and refresh tokens used by Makeshortseasy are stored locally on your own device so the desktop application can maintain an authorized connection between sessions. Makeshortseasy is not described here as storing those tokens on our remote servers.
-      </p>
-      <p>
-        Because the app runs locally, the protection of the device itself also matters. Anyone with access to your device and local application files may be able to access locally stored app data, depending on your device configuration and security settings.
-      </p>
-
-      <h2>5. User-Selected Media and Captions</h2>
-      <p>
-        Makeshortseasy may process videos, captions, and related posting inputs that you select from your own device. This information is used only to prepare and submit the upload you explicitly initiate to your own TikTok account.
-      </p>
-      <p>
-        Makeshortseasy does not upload content automatically without user action. Uploads occur only when you instruct the app to do so.
-      </p>
-
-      <h2>6. Local Logs and Error Information</h2>
-      <p>
-        Makeshortseasy may create local logs, status records, or error messages on your device to help with troubleshooting, diagnostics, or understanding whether a TikTok connection or upload action succeeded or failed. These logs are generated locally as part of the desktop application experience.
-      </p>
-      <p>
-        Unless you choose to share local logs yourself, this Privacy Policy does not represent that such logs are automatically transmitted to a remote backend.
-      </p>
-
-      <h2>7. How Makeshortseasy Uses Information</h2>
-      <p>Makeshortseasy uses authorized and locally available information to:</p>
-      <ul>
-        <li>authenticate your TikTok connection through TikTok’s official flow;</li>
-        <li>maintain the authorized session on your device using locally stored tokens;</li>
-        <li>allow you to select media and submit uploads to your own TikTok account;</li>
-        <li>display connection, posting, and error status within the desktop application; and</li>
-        <li>support troubleshooting and technical operation through local logs or error records.</li>
-      </ul>
-
-      <h2>8. Data Retention</h2>
-      <p>
-        Makeshortseasy retains locally stored tokens, local logs, and other local app data on your device for as long as they remain on that device, are needed for the app’s functionality, or until you remove them. User-selected media remains subject to your own device storage and file management practices unless and until you delete it.
-      </p>
-      <p>
-        If you disconnect the app, revoke access through TikTok, or delete local Makeshortseasy data from your device, the app may no longer be able to use previously stored tokens or related local data.
-      </p>
-
-      <h2>9. Revoking Access and Deleting Local Data</h2>
-      <p>
-        You can revoke Makeshortseasy’s access to your TikTok account through your TikTok account settings, subject to TikTok’s own controls and interfaces.
-      </p>
-      <p>
-        You can also delete locally stored tokens, local logs, or other application data from your own device by removing the relevant Makeshortseasy files or reinstalling or resetting the application, depending on how you use it.
-      </p>
-
-      <div class="note">
-        If you no longer want Makeshortseasy to access your TikTok account, you should revoke access in TikTok and remove local app data from your device.
+      <div class="callout">
+        Makeshortseasy does not collect, transmit, or store your personal data on any server we
+        control. All authentication tokens and app data are stored locally on your own machine.
       </div>
+    </section>
 
-      <h2>10. Security</h2>
+    <!-- 2. Information We Access -->
+    <section>
+      <h2>Information We Access</h2>
+      <p>When you use Makeshortseasy, the following categories of information may be involved:</p>
+      <ul>
+        <li>
+          <strong>TikTok account information:</strong> Basic profile data (such as your display name
+          and account identifiers) returned by TikTok's API after you authorize the application.
+          This is used solely to confirm the connected account and display it within the app.
+        </li>
+        <li>
+          <strong>OAuth authorization codes and tokens:</strong> As part of the TikTok Login Kit
+          authorization flow, Makeshortseasy receives a short-lived authorization code, which is
+          exchanged for an access token and refresh token. These tokens are stored locally on your
+          device and are never transmitted to servers we operate.
+        </li>
+        <li>
+          <strong>User-selected media and captions:</strong> When you initiate an upload, Makeshortseasy
+          reads the video file(s) and caption text you have chosen from your own device. This content
+          is sent directly to TikTok's API on your behalf and is not stored or processed by us.
+        </li>
+        <li>
+          <strong>Local logs:</strong> The app may generate log files on your device for diagnostic
+          and troubleshooting purposes. These logs remain on your machine and are not transmitted
+          to us automatically.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. TikTok API and Scopes -->
+    <section>
+      <h2>TikTok API &amp; Authorization Scopes</h2>
       <p>
-        Makeshortseasy uses a local desktop workflow and TikTok’s official authorization flow, and we aim to handle authorized information in a reasonable and careful manner consistent with the app’s purpose. However, no method of storage, software operation, or device security can be guaranteed to be completely secure.
+        Makeshortseasy uses TikTok's official API services — specifically TikTok Login Kit for Desktop
+        and the TikTok Content Posting API. The application requests only the permissions (scopes)
+        necessary for its core functionality: authenticating your account and submitting video content
+        on your behalf when you explicitly trigger an upload.
       </p>
       <p>
-        You are responsible for maintaining the security of the device where Makeshortseasy is installed, including account access controls, file access controls, and general system security practices.
+        Makeshortseasy does not request access to your TikTok password. Authorization is handled
+        entirely through TikTok's official OAuth flow, which directs you to TikTok's own login
+        interface. The OAuth callback is handled locally on your machine.
       </p>
-
-      <h2>11. Children and Eligibility</h2>
       <p>
-        Makeshortseasy is intended for users who are legally permitted to use TikTok’s services and the relevant TikTok developer features. The app is not directed to children. If you are not old enough to lawfully use the relevant TikTok services or to authorize this type of account connection, you should not use Makeshortseasy.
+        Your use of TikTok's services through Makeshortseasy is also subject to
+        <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">TikTok's Privacy Policy</a>
+        and <a href="https://www.tiktok.com/legal/terms-of-service" target="_blank" rel="noopener">Terms of Service</a>.
       </p>
+    </section>
 
-      <h2>12. Policy Changes</h2>
+    <!-- 4. Local Storage -->
+    <section>
+      <h2>Local Storage of Tokens</h2>
       <p>
-        We may update this Privacy Policy from time to time to reflect changes in Makeshortseasy, its TikTok integration, or related operational practices. When we make changes, we will update the “Last Updated” date shown on this page.
+        Access tokens and refresh tokens issued by TikTok are stored locally in your application data
+        directory. This storage exists so that you do not need to re-authorize the application on
+        every use. The tokens are not shared with us and are not uploaded to any third-party service
+        by Makeshortseasy.
       </p>
-
-      <h2>13. Contact</h2>
       <p>
-        If you have questions about this Privacy Policy or about how Makeshortseasy handles information in connection with its TikTok features, you can contact us at <a href="mailto:jaungauos@gmail.com">jaungauos@gmail.com</a>.
+        You are responsible for the security of your own device. We recommend keeping your operating
+        system and security software up to date to protect locally stored data.
       </p>
+    </section>
 
-      <footer>
-        Privacy Policy for Makeshortseasy
-      </footer>
-    </main>
+    <!-- 5. How We Use Information -->
+    <section>
+      <h2>How Information Is Used</h2>
+      <p>Makeshortseasy uses the information described above for the following purposes only:</p>
+      <ul>
+        <li>To authenticate your TikTok account and maintain your authorized session.</li>
+        <li>To display basic account details within the application interface.</li>
+        <li>To submit video files and captions to TikTok's API when you explicitly initiate an upload.</li>
+        <li>To generate local diagnostic logs that help you or our support team troubleshoot issues.</li>
+      </ul>
+      <p>We do not use your information for advertising, analytics profiling, or any purpose beyond operating the core features of Makeshortseasy.</p>
+    </section>
+
+    <!-- 6. Data Retention -->
+    <section>
+      <h2>Data Retention</h2>
+      <p>
+        Because Makeshortseasy does not transmit your data to our servers, there is no server-side
+        retention period to describe. Locally stored tokens, logs, and app preferences persist on
+        your device until you choose to delete them or uninstall the application.
+      </p>
+      <p>
+        TikTok access tokens expire according to TikTok's own token lifecycle policies. Refresh tokens
+        allow the app to renew access without requiring re-authorization, until either the token expires
+        or you revoke access.
+      </p>
+    </section>
+
+    <!-- 7. Revoking Access -->
+    <section>
+      <h2>Revoking Access &amp; Deleting Local Data</h2>
+      <p>You have full control over the data held by Makeshortseasy:</p>
+      <ul>
+        <li>
+          <strong>Revoke TikTok authorization:</strong> You can disconnect Makeshortseasy from your
+          TikTok account at any time by visiting your TikTok account settings under
+          <em>Security &amp; Permissions → Manage App Permissions</em> and removing Makeshortseasy's access.
+        </li>
+        <li>
+          <strong>Delete local data:</strong> You can delete locally stored tokens, logs, and preferences
+          by removing the application's data folder from your device, or by uninstalling Makeshortseasy
+          entirely through your operating system's standard uninstall process.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 8. Security -->
+    <section>
+      <h2>Security</h2>
+      <p>
+        We design Makeshortseasy to minimize the data it handles. Because all sensitive data — including
+        authentication tokens — is stored locally on your own device and never transmitted to servers
+        we control, our security surface is limited.
+      </p>
+      <p>
+        We make reasonable efforts to follow secure coding practices, but we cannot guarantee the
+        absolute security of data stored on your device. Protecting local files is ultimately your
+        responsibility as the device owner.
+      </p>
+    </section>
+
+    <!-- 9. Children -->
+    <section>
+      <h2>Eligibility &amp; Children</h2>
+      <p>
+        Makeshortseasy is not intended for use by individuals under the age of 13, or under the
+        minimum age required by TikTok in your region. By using the application, you represent that
+        you meet TikTok's eligibility requirements for account creation and API usage.
+      </p>
+    </section>
+
+    <!-- 10. Policy Changes -->
+    <section>
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in the application or
+        applicable requirements. When we do, we will revise the "Last Updated" date at the top of
+        this page. We encourage you to review this policy periodically.
+      </p>
+      <p>
+        Continued use of Makeshortseasy after a policy update constitutes your acceptance of the
+        revised terms.
+      </p>
+    </section>
+
+    <!-- 11. Contact -->
+    <section>
+      <h2>Contact</h2>
+      <p>
+        If you have questions or concerns about this Privacy Policy or how Makeshortseasy handles
+        information, please contact us at:
+      </p>
+      <p><a href="mailto:jaungauos@gmail.com">jaungauos@gmail.com</a></p>
+    </section>
+
+    <footer class="page-footer">
+      <span>© 2026 Makeshortseasy</span>
+      <span><a href="terms.html">Terms of Service</a></span>
+    </footer>
+
   </div>
 </body>
 </html>
