@@ -1,20 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Privacy Policy - Makeshortseasy</title>
-    <style>body{font-family:sans-serif; line-height:1.6; max-width:800px; margin:auto; padding:20px; color:#333;} h2{color:#fe2c55;}</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Makeshortseasy</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f8f9fb;
+      color:#1f2937;
+      max-width:900px;
+      margin:0 auto;
+      padding:48px 24px;
+      line-height:1.75;
+    }
+    h1{
+      font-size:52px;
+      margin-bottom:10px;
+    }
+    h2{
+      color:#ff2f5b;
+      margin-top:40px;
+      font-size:24px;
+    }
+    p, li{
+      font-size:18px;
+    }
+    ul{
+      padding-left:24px;
+    }
+    .muted{
+      color:#6b7280;
+      margin-bottom:30px;
+    }
+    strong{
+      color:#111827;
+    }
+  </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>Last Updated: April 7, 2026</p>
-    <h2>1. Introduction</h2>
-    <p>Makeshortseasy is committed to protecting your privacy. This policy explains how we handle TikTok user data via the TikTok API.</p>
-    <h2>2. Data Collection & Use</h2>
-    <p>We only access data explicitly authorized by you (video upload and basic profile info). All authentication tokens are stored locally on your device and are never transmitted to our servers.</p>
-    <h2>3. Data Retention & Deletion</h2>
-    <p>We do not store user content. You can revoke access at any time via your TikTok settings. Upon revocation, all local tokens are deleted.</p>
-    <h2>4. GDPR & CCPA Compliance</h2>
-    <p>We respect your rights to access, port, and delete your data. For inquiries, contact <b>jaungauos@gmail.com</b>.</p>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last Updated: April 17, 2026</p>
+
+  <h2>1. Introduction</h2>
+  <p>
+    Makeshortseasy ("we", "our", or "us") is a desktop application that helps users authenticate with TikTok
+    and upload content through TikTok's official APIs. This Privacy Policy explains what information we access,
+    how it is used, how it is stored, and what choices users have regarding their data.
+  </p>
+
+  <h2>2. Information We Access</h2>
+  <p>
+    Makeshortseasy only accesses information that is explicitly authorized by the user through TikTok Login Kit
+    and related TikTok APIs.
+  </p>
+  <ul>
+    <li><strong>Basic profile information</strong>, such as account identity information made available by TikTok after authorization.</li>
+    <li><strong>Authorization data</strong>, including OAuth authorization codes, access tokens, and refresh tokens required to maintain the connection between the user and the application.</li>
+    <li><strong>User-selected media and captions</strong> that the user chooses to upload from their own device to TikTok.</li>
+    <li><strong>Operational logs and error messages</strong> generated locally on the user's device for troubleshooting and debugging.</li>
+  </ul>
+
+  <h2>3. How We Use Information</h2>
+  <p>We use authorized data only for the following purposes:</p>
+  <ul>
+    <li>To authenticate the user with TikTok.</li>
+    <li>To maintain a valid authorized session using TikTok access and refresh tokens.</li>
+    <li>To upload user-selected content to the user's TikTok account through TikTok's official APIs.</li>
+    <li>To display upload status, success messages, and related account connection information inside the application.</li>
+    <li>To diagnose local technical issues and improve application stability.</li>
+  </ul>
+
+  <h2>4. Local Storage and Token Handling</h2>
+  <p>
+    Makeshortseasy is designed as a desktop application. Authentication tokens are stored locally on the user's device
+    and are not transmitted to our own servers. TikTok API requests are sent directly from the user's device to TikTok
+    as part of the authorized workflow.
+  </p>
+  <p>
+    Users are responsible for securing access to their own device and local files. We recommend that users keep their
+    operating system and local environment secure.
+  </p>
+
+  <h2>5. Media Uploads</h2>
+  <p>
+    Makeshortseasy does not automatically collect or scan a user's files. Media is only processed or uploaded when
+    the user explicitly selects a file and initiates the upload action within the application.
+  </p>
+  <p>
+    Uploaded media and captions are transmitted to TikTok only when the user chooses to publish or export content.
+  </p>
+
+  <h2>6. Sharing of Information</h2>
+  <p>
+    We do not sell, rent, or share personal information with third parties for advertising purposes.
+  </p>
+  <p>
+    Information may be transmitted to TikTok when necessary to complete the authorized login and content posting flow.
+    Makeshortseasy does not operate a remote backend that stores user tokens or uploaded content on our own servers.
+  </p>
+
+  <h2>7. Data Retention</h2>
+  <p>
+    Makeshortseasy does not maintain centralized cloud storage of user data. Any locally stored authentication data
+    remains on the user's device until it expires, is refreshed, or is manually removed by the user.
+  </p>
+  <p>
+    Local logs or temporary files may remain on the device for troubleshooting purposes unless deleted by the user
+    or overwritten during normal application use.
+  </p>
+
+  <h2>8. Revoking Access and Deleting Data</h2>
+  <p>
+    Users may revoke Makeshortseasy's access to their TikTok account through their TikTok account settings, where
+    connected apps can be managed.
+  </p>
+  <p>
+    Users may also delete locally stored tokens, logs, or temporary data directly from their own device at any time.
+    After revocation or deletion, the application will no longer be able to act on behalf of the user unless the user
+    completes authorization again.
+  </p>
+
+  <h2>9. Security</h2>
+  <p>
+    We take reasonable measures to reduce risk in the local authorization flow, including the use of OAuth state
+    validation and token exchange mechanisms supported by TikTok. However, no method of local storage or electronic
+    transmission is completely risk-free, and users are responsible for maintaining the security of their own device.
+  </p>
+
+  <h2>10. Children's Privacy</h2>
+  <p>
+    Makeshortseasy is not intended for children or for users who are not legally permitted to use TikTok's services
+    and APIs under applicable law or TikTok's policies.
+  </p>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time to reflect application changes, legal updates, or TikTok API
+    integration requirements. The "Last Updated" date at the top of this page indicates the most recent revision.
+  </p>
+
+  <h2>12. Contact</h2>
+  <p>
+    If you have questions about this Privacy Policy or data handling in Makeshortseasy, contact:
+    <strong>jaungauos@gmail.com</strong>
+  </p>
 </body>
 </html>
