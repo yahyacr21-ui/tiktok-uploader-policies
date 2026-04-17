@@ -1,26 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Makeshortseasy</title>
-    <style>
-        body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
-        h1 { color: #000; border-bottom: 2px solid #fe2c55; padding-bottom: 10px; }
-        h2 { color: #fe2c55; margin-top: 30px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service – Makeshortseasy</title>
+  <style>
+    :root {
+      --accent: #ff2f5b;
+      --accent-light: #fff0f3;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #fafafa;
+      --max: 760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* Top bar */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .topbar-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-icon svg { display: block; }
+    .topbar-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .topbar-sep {
+      color: var(--border);
+      font-size: 18px;
+      margin-left: 4px;
+    }
+    .topbar-page {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* Layout */
+    .wrapper {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* Hero */
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .page-header h1 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .page-header h1 span { color: var(--accent); }
+    .meta {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+    section { margin-bottom: 40px; }
+
+    h2 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    ul li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    ul li::marker { color: var(--accent); }
+
+    /* Highlight box */
+    .callout {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      color: #7a1328;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Footer */
+    .page-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Terms of Service</h1>
-    <p>Welcome to <strong>Makeshortseasy</strong>. By using our tool, you agree to the following terms:</p>
 
-    <h2>1. User Responsibility</h2>
-    <p>You are solely responsible for the content you upload and for complying with TikTok's Community Guidelines.</p>
+  <!-- Top bar -->
+  <div class="topbar">
+    <a class="topbar-logo" href="#">
+      <img src="data:image/png;base64,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" style="height:40px;width:auto;display:block;" alt="Makeshortseasy logo" />
+      <span class="topbar-name">Makeshortseasy</span>
+    </a>
+    <span class="topbar-sep">|</span>
+    <span class="topbar-page">Terms of Service</span>
+  </div>
 
-    <h2>2. Disclaimer</h2>
-    <p>The tool is provided "as is". We are not liable for any account restrictions resulting from the misuse of the TikTok API automation.</p>
+  <div class="wrapper">
 
-    <h2>3. Contact Us</h2>
-    <p>If you have any questions about these Terms, please reach out to: <strong>jaungauos@gmail.com</strong></p>
+    <header class="page-header">
+      <h1>Terms of Service for <span>Makeshortseasy</span></h1>
+      <p class="meta">Last Updated: April 17, 2026</p>
+    </header>
+
+    <!-- 1. Acceptance -->
+    <section>
+      <h2>Acceptance of Terms</h2>
+      <p>
+        These Terms of Service ("Terms") govern your use of Makeshortseasy, a desktop application
+        that allows you to connect your TikTok account and upload video content to TikTok directly
+        from your device. By downloading, installing, or using Makeshortseasy, you agree to be bound
+        by these Terms.
+      </p>
+      <p>
+        If you do not agree with any part of these Terms, please do not use the application.
+      </p>
+    </section>
+
+    <!-- 2. Description of Service -->
+    <section>
+      <h2>Description of the Application</h2>
+      <p>
+        Makeshortseasy is a desktop application that integrates with TikTok's official API services —
+        specifically TikTok Login Kit for Desktop and the TikTok Content Posting API. The application
+        allows you to:
+      </p>
+      <ul>
+        <li>Authorize Makeshortseasy to act on your TikTok account through TikTok's official OAuth flow.</li>
+        <li>Select video files and captions from your own device.</li>
+        <li>Upload that content to your TikTok account when you explicitly initiate the upload.</li>
+      </ul>
+      <p>
+        Makeshortseasy does not host or store your content. All uploads go directly from your device
+        to TikTok via TikTok's API. We do not operate a remote backend for user data or media files.
+      </p>
+    </section>
+
+    <!-- 3. Eligibility -->
+    <section>
+      <h2>Eligibility</h2>
+      <p>
+        You must meet TikTok's minimum age and eligibility requirements to create a TikTok account
+        in your region. By using Makeshortseasy, you represent that you are eligible to use TikTok's
+        services and that you are authorized to use the TikTok account you connect to the application.
+      </p>
+      <p>
+        Makeshortseasy is not intended for use by individuals under the age of 13 or the applicable
+        minimum age in your jurisdiction.
+      </p>
+    </section>
+
+    <!-- 4. Acceptable Use -->
+    <section>
+      <h2>Acceptable Use</h2>
+      <p>You agree to use Makeshortseasy only for lawful purposes and in accordance with these Terms. You must not use the application to:</p>
+      <ul>
+        <li>Upload content that violates TikTok's Community Guidelines, Terms of Service, or applicable law.</li>
+        <li>Upload content that infringes on any copyright, trademark, or other intellectual property rights of any third party.</li>
+        <li>Attempt to reverse-engineer, decompile, or tamper with the application in a way that violates applicable law.</li>
+        <li>Use the application to impersonate another person or entity or to misrepresent your affiliation with any person or entity.</li>
+        <li>Circumvent or attempt to circumvent TikTok's API rate limits, access controls, or policies.</li>
+        <li>Use the application in any manner that could damage, disable, or impair TikTok's services.</li>
+      </ul>
+      <div class="callout">
+        Makeshortseasy provides a tool for uploading your own content. What you upload is your
+        responsibility. We reserve the right to discontinue the application if it is being used
+        to violate TikTok's policies or any applicable law.
+      </div>
+    </section>
+
+    <!-- 5. TikTok API Compliance -->
+    <section>
+      <h2>TikTok API &amp; Platform Compliance</h2>
+      <p>
+        Makeshortseasy uses TikTok's API in accordance with TikTok's Developer Terms of Service and
+        API policies. Your use of Makeshortseasy means you are indirectly interacting with TikTok's
+        platform and are subject to TikTok's own
+        <a href="https://www.tiktok.com/legal/terms-of-service" target="_blank" rel="noopener">Terms of Service</a>
+        and <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+        in addition to these Terms.
+      </p>
+      <p>
+        We are not affiliated with, endorsed by, or officially partnered with TikTok or ByteDance Ltd.
+        TikTok is a trademark of ByteDance Ltd.
+      </p>
+    </section>
+
+    <!-- 6. Account Authorization -->
+    <section>
+      <h2>Account Authorization &amp; Responsibility</h2>
+      <p>
+        When you authorize Makeshortseasy through TikTok's OAuth flow, you grant the application
+        permission to access your TikTok account for the purposes described in these Terms and in
+        our Privacy Policy. You are solely responsible for maintaining the security of your TikTok
+        account credentials and your device.
+      </p>
+      <p>
+        If you believe your account has been accessed without authorization, revoke Makeshortseasy's
+        permissions immediately through your TikTok account settings and contact TikTok support.
+      </p>
+    </section>
+
+    <!-- 7. User Content -->
+    <section>
+      <h2>User Content</h2>
+      <p>
+        You retain all ownership rights to the video files and captions you upload using Makeshortseasy.
+        We do not claim any rights over your content.
+      </p>
+      <p>
+        You are solely responsible for ensuring that the content you upload through Makeshortseasy
+        complies with TikTok's Community Guidelines, all applicable copyright and intellectual property
+        laws, and any other legal requirements applicable in your jurisdiction.
+      </p>
+      <p>
+        We accept no liability for content uploaded by users and do not review, moderate, or store
+        user content.
+      </p>
+    </section>
+
+    <!-- 8. Suspension / Termination -->
+    <section>
+      <h2>Suspension &amp; Termination</h2>
+      <p>
+        We reserve the right to discontinue or restrict access to Makeshortseasy at any time, with
+        or without notice, for reasons including but not limited to changes in TikTok's API policies,
+        technical issues, or violations of these Terms.
+      </p>
+      <p>
+        You may stop using Makeshortseasy at any time by uninstalling the application. You can also
+        revoke the application's access to your TikTok account through TikTok's account settings
+        independently of uninstalling the app.
+      </p>
+    </section>
+
+    <!-- 9. Intellectual Property -->
+    <section>
+      <h2>Intellectual Property</h2>
+      <p>
+        The Makeshortseasy application, including its design, interface, code, and associated
+        materials, is protected by applicable intellectual property laws. You may not reproduce,
+        distribute, or create derivative works based on the application without our express written
+        permission.
+      </p>
+      <p>
+        Nothing in these Terms transfers any intellectual property rights in the application to you.
+        You are granted a limited, non-exclusive, non-transferable license to use the application
+        on your own device for its intended purpose.
+      </p>
+    </section>
+
+    <!-- 10. Disclaimer of Warranties -->
+    <section>
+      <h2>Disclaimer of Warranties</h2>
+      <p>
+        Makeshortseasy is provided on an "as is" and "as available" basis, without warranties of
+        any kind, express or implied, including but not limited to warranties of merchantability,
+        fitness for a particular purpose, or non-infringement.
+      </p>
+      <p>
+        We do not warrant that the application will be error-free, uninterrupted, or compatible with
+        all operating environments. TikTok API availability is outside our control and may affect the
+        functionality of Makeshortseasy at any time.
+      </p>
+    </section>
+
+    <!-- 11. Limitation of Liability -->
+    <section>
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by applicable law, we shall not be liable for any indirect,
+        incidental, special, consequential, or punitive damages arising out of or related to your
+        use of Makeshortseasy, including but not limited to loss of data, loss of revenue, or
+        account suspension by TikTok.
+      </p>
+      <p>
+        Our total liability to you for any claim arising from the use of Makeshortseasy shall not
+        exceed the amount you paid for the application, if any.
+      </p>
+    </section>
+
+    <!-- 12. Changes to Terms -->
+    <section>
+      <h2>Changes to These Terms</h2>
+      <p>
+        We may update these Terms from time to time. When we do, we will update the "Last Updated"
+        date at the top of this page. Material changes will be communicated through the application
+        or the product website where practicable.
+      </p>
+      <p>
+        Continued use of Makeshortseasy after updated Terms are posted constitutes your acceptance
+        of those changes.
+      </p>
+    </section>
+
+    <!-- 13. Contact -->
+    <section>
+      <h2>Contact</h2>
+      <p>
+        If you have any questions about these Terms of Service or about Makeshortseasy, please
+        contact us at:
+      </p>
+      <p><a href="mailto:jaungauos@gmail.com">jaungauos@gmail.com</a></p>
+    </section>
+
+    <footer class="page-footer">
+      <span>© 2026 Makeshortseasy</span>
+      <span><a href="privacy.html">Privacy Policy</a></span>
+    </footer>
+
+  </div>
 </body>
 </html>
